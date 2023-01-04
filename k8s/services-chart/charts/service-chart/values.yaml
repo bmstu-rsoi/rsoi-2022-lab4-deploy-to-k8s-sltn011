@@ -6,7 +6,7 @@ service:
     version:
   database:
     name:
-    host: postgres-service
+    host: c-c9qlg7pqrfel3d8d1k3s.rw.mdb.yandexcloud.net
     port: 6432
     username: rsoi
     password: rsoirsoi

@@ -21,9 +21,15 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/api/v1")
 public class CGateway {
 
-    public static final String CarsService    = "http://cars:8070/api/v1/sys/cars";
-    public static final String RentService    = "http://rental:8060/api/v1/sys/rental";
-    public static final String PaymentService = "http://payment:8050/api/v1/sys/payment";
+    public static final String CarsService    = "http://10.96.184.168:8070/api/v1/sys/cars";
+    public static final String RentService    = "http://10.96.185.123:8060/api/v1/sys/rental";
+    public static final String PaymentService = "http://10.96.215.106:8050/api/v1/sys/payment";
+
+    @GetMapping("/hello")
+    public String healthcheck()
+    {
+        return "Hello from gateway!";
+    }
 
     @GetMapping("/cars")
     public MCarsPage getAvailableCars(@RequestParam int page, @RequestParam int size,

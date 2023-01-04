@@ -49,7 +49,6 @@ spec:
             - name: postgres-config-map
               mountPath: /docker-entrypoint-initdb.d/
       volumes:
-        - ./init.sql: /docker-entrypoint-initdb.d/init.sql
         - name: db-data
         - name: postgres-config-map
           configMap:
