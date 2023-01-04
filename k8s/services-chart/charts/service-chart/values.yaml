@@ -1,4 +1,3 @@
-domain: thesawisthelaw.ru
 service:
   port: 8080
   isGateway:
@@ -8,9 +7,9 @@ service:
   database:
     name:
     host: postgres-service
-    port: 5432
-    username: postgres
-    password: postgres
+    port: 6432
+    username: rsoi
+    password: rsoirsoi
   resources:
     requests:
       cpu: 200m
