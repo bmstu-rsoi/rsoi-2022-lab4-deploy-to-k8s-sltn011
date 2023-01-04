@@ -43,7 +43,14 @@ jobs:
       - name: Push containers
         run: docker compose push
 
-      # TODO build, publish to docker hub, deploy to k8s
+      - name: Deploy
+        run: |
+          kubectl config set-cluster rsoi --server="${{ secrets.YANDEX_URL }}" --insecure-skip-tls-verify=true
+          kubectl config set-credentials admin --token="${{ secrets.YANDEX_TOKEN }}"
+          kubectl config set-context default --cluster=rsoi --user=admin
+          kubectl config use-context default
+          helm delete services && helm install services k8s/services-chart/
+          sleep 45
 
       - name: Run API Tests
         uses: matt-ball/newman-action@master
